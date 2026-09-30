@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Chef 360 Console</title>
+    <meta
+      name="description"
+      content="Progress Chef 360 console for client reporting and run history."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260928" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="app-launcher" id="sidebarToggle" aria-label="Expand navigation" type="button">
+            <span class="launcher-grid" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+
+          <div class="brand-wrap">
+            <div class="brand-mark">P</div>
+            <div class="brand-text">ProgressChef360<span>™</span></div>
+          </div>
+
+          <span class="crumb-label">Reporting</span>
+        </div>
+
+        <div class="topbar-right">
+          <button class="assistant-pill" type="button">Chef AI assistant</button>
+          <div class="user-pill">
+            <span class="user-avatar">t</span>
+            <span class="user-name">tenant-admin test defaults skills</span>
+            <span class="caret">▾</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+      <div class="content-layout">
+        <aside class="sidebar open" id="sidebar" aria-label="Sidebar navigation">
+          <div class="sidebar-panel">
+            <nav class="nav-list" aria-label="Reporting navigation">
+              <a class="nav-item active" href="#" data-title="Overview" data-view="overview">
+                <span class="nav-item-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17.5V6.5l6-3 6 3v11l-6 3-6-3Z"/></svg>
+                </span>
+                <span class="nav-copy">
+                  <strong>Overview</strong>
+                </span>
+              </a>
+              <a class="nav-item" href="#" data-title="Standard Reports" data-view="standard-reports">
+                <span class="nav-item-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18V8m5 10V5m5 13v-8M4 18h16"/></svg>
+                </span>
+                <span class="nav-copy">
+                  <strong>Standard Reports</strong>
+                </span>
+              </a>
+              <a class="nav-item" href="#" data-title="AI Reports" data-view="ai-reports">
+                <span class="nav-item-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4m0 10v4M5.5 5.5l2.8 2.8m7.4 7.4 2.8 2.8M3 12h4m10 0h4M5.5 18.5l2.8-2.8m7.4-7.4 2.8-2.8"/></svg>
+                </span>
+                <span class="nav-copy">
+                  <strong>AI Reports</strong>
+                </span>
+              </a>
+            </nav>
+          </div>
+        </aside>
+
+        <main class="main-panel overview-main-panel">
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="#">Home</a>
+            <span class="separator">›</span>
+            <a href="#">Reporting</a>
+            <span class="separator">›</span>
+            <span id="breadcrumbTitle">Overview</span>
+          </nav>
+
+          <header class="overview-header">
+            <div>
+              <h1 id="pageTitle">Overview</h1>
+              <p>Get a snapshot of your infrastructure, compliance, and reporting activity. Explore reports or create new AI reports to dive deeper.</p>
+            </div>
+            <button class="date-range-button" type="button">
+              <span class="calendar-icon" aria-hidden="true">▣</span>
+              Last 24 hours
+              <span class="caret-down" aria-hidden="true">▾</span>
+            </button>
+          </header>
+
+          <section class="metrics-grid" aria-label="Overview metrics">
+            <article class="metric-card">
+              <div class="metric-card-head">
+                <span class="mini-icon file-icon" aria-hidden="true">▣</span>
+                <span class="metric-label">Total Nodes</span>
+              </div>
+              <div class="metric-value">2</div>
+              <button class="metric-link" type="button">View node reports <span aria-hidden="true">→</span></button>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-card-head">
+                <span class="mini-icon list-icon" aria-hidden="true">▤</span>
+                <span class="metric-label">Client Runs</span>
+              </div>
+              <div class="metric-value">8</div>
+              <div class="metric-meta">
+                <span class="dot success-dot"></span> 4 Successful
+                <span class="dot failed-dot"></span> 4 Failed
+              </div>
+              <button class="metric-link" type="button">View client run reports <span aria-hidden="true">→</span></button>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-card-head">
+                <span class="mini-icon check-icon" aria-hidden="true">✓</span>
+                <span class="metric-label">Compliance</span>
+              </div>
+              <div class="metric-value">3</div>
+              <div class="metric-split">
+                <div><strong>3</strong><span>Nodes</span></div>
+                <div><strong>3</strong><span>Profiles</span></div>
+                <div><strong>62</strong><span>Controls</span></div>
+              </div>
+              <button class="metric-link" type="button">View compliance reports <span aria-hidden="true">→</span></button>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-card-head">
+                <span class="mini-icon box-icon" aria-hidden="true">◫</span>
+                <span class="metric-label">Courier Jobs</span>
+              </div>
+              <div class="metric-value">0</div>
+              <div class="metric-meta muted">No recent activity</div>
+              <button class="metric-link" type="button">View courier job reports <span aria-hidden="true">→</span></button>
+            </article>
+          </section>
+
+          <section class="dashboard-grid" aria-label="Overview charts">
+            <article class="panel chart-panel">
+              <div class="panel-header">
+                <h2>Client Run Activity</h2>
+                <button class="panel-select" type="button">Last 7 days <span aria-hidden="true">▾</span></button>
+              </div>
+              <div class="chart-subtitle">Runs over time</div>
+              <div class="bar-chart" aria-label="Client run activity chart">
+                <div class="chart-column"><span class="bar bar-green" style="height: 42%"></span></div>
+                <div class="chart-column"><span class="bar bar-red" style="height: 58%"></span></div>
+                <div class="chart-column"><span class="bar bar-green" style="height: 35%"></span></div>
+                <div class="chart-column"><span class="bar bar-red" style="height: 62%"></span></div>
+                <div class="chart-column"><span class="bar bar-green" style="height: 48%"></span></div>
+                <div class="chart-column"><span class="bar bar-red" style="height: 74%"></span></div>
+                <div class="chart-column"><span class="bar bar-green" style="height: 44%"></span></div>
+              </div>
+              <div class="chart-labels">
+                <span>Sep 12</span>
+                <span>Sep 13</span>
+                <span>Sep 14</span>
+                <span>Sep 15</span>
+                <span>Sep 16</span>
+                <span>Sep 17</span>
+                <span>Sep 18</span>
+              </div>
+              <div class="legend">
+                <span><i class="legend-dot green"></i> Successful</span>
+                <span><i class="legend-dot red"></i> Failed</span>
+              </div>
+            </article>
+
+            <article class="panel donut-panel">
+              <div class="panel-header compact-header">
+                <h2>Compliance Status</h2>
+              </div>
+              <div class="donut-subtitle">Results across nodes, profiles and controls</div>
+              <div class="donut-row">
+                <div class="donut-card">
+                  <div class="donut donut-nodes" aria-label="67 percent nodes passed"><span>67%</span></div>
+                  <div class="donut-label">Nodes</div>
+                  <div class="donut-summary">
+                    <span><i class="legend-dot green"></i> 2 Passed</span>
+                    <span><i class="legend-dot red"></i> 1 Failed</span>
+                  </div>
+                </div>
+                <div class="donut-card">
+                  <div class="donut donut-profiles" aria-label="100 percent profiles passed"><span>100%</span></div>
+                  <div class="donut-label">Profiles</div>
+                  <div class="donut-summary">
+                    <span><i class="legend-dot green"></i> 3 Passed</span>
+                    <span><i class="legend-dot red"></i> 0 Failed</span>
+                  </div>
+                </div>
+                <div class="donut-card">
+                  <div class="donut donut-controls" aria-label="82 percent controls passed"><span>82%</span></div>
+                  <div class="donut-label">Controls</div>
+                  <div class="donut-summary">
+                    <span><i class="legend-dot green"></i> 51 Passed</span>
+                    <span><i class="legend-dot red"></i> 11 Failed</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="standard-reports" aria-label="Standard reports">
+            <div class="section-row-title">
+              <h3>Explore Standard Reports</h3>
+              <a href="#" class="view-link">View all standard reports <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="report-tile-grid">
+              <article class="report-tile client-runs-tile">
+                <div class="report-tile-icon file-icon" aria-hidden="true">▣</div>
+                <div class="report-text">
+                  <h4>Client Runs</h4>
+                  <p>View the results of client runs across your infrastructure.</p>
+                </div>
+                <span class="report-arrow" aria-hidden="true">›</span>
+                <div class="report-footnote">8 runs <span class="muted-split">|</span> 4 successful <span class="muted-split">|</span> 4 failed</div>
+              </article>
+              <article class="report-tile">
+                <div class="report-tile-icon check-icon" aria-hidden="true">✓</div>
+                <div class="report-text">
+                  <h4>Compliance</h4>
+                  <p>View compliance scan results by nodes, profiles and controls.</p>
+                </div>
+                <span class="report-arrow" aria-hidden="true">›</span>
+                <div class="report-footnote">3 nodes <span class="muted-split">|</span> 3 profiles <span class="muted-split">|</span> 62 controls</div>
+              </article>
+              <article class="report-tile">
+                <div class="report-tile-icon box-icon" aria-hidden="true">◫</div>
+                <div class="report-text">
+                  <h4>Node Management</h4>
+                  <p>View details of all nodes, installed skills and attributes.</p>
+                </div>
+                <span class="report-arrow" aria-hidden="true">›</span>
+                <div class="report-footnote">2 nodes</div>
+              </article>
+            </div>
+          </section>
+
+          <section class="activity-panel" aria-label="Recent activity">
+            <div class="section-row-title activity-row">
+              <div>
+                <h3>Recent Activity</h3>
+                <p>Latest data across client runs, compliance scans and node management.</p>
+              </div>
+              <a href="#" class="view-link">View all activity <span aria-hidden="true">→</span></a>
+            </div>
+
+            <div class="activity-table-wrap">
+              <table class="activity-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Type</th>
+                    <th>Details</th>
+                    <th>Status</th>
+                    <th>Node / Profile / Control</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>12 minutes ago</td>
+                    <td class="type-pill">Client Run</td>
+                    <td>Client run completed</td>
+                    <td><span class="activity-badge failed">Failed</span></td>
+                    <td>web-prod-02</td>
+                    <td><a href="#" class="view-results-link">View results</a></td>
+                  </tr>
+                  <tr>
+                    <td>2 hours ago</td>
+                    <td class="type-pill">Client Run</td>
+                    <td>Client run completed</td>
+                    <td><span class="activity-badge success">Success</span></td>
+                    <td>web-prod-01</td>
+                    <td><a href="#" class="view-results-link">View results</a></td>
+                  </tr>
+                  <tr>
+                    <td>2 hours ago</td>
+                    <td class="type-pill">Compliance</td>
+                    <td>Control scan completed</td>
+                    <td><span class="activity-badge failed">Failed</span></td>
+                    <td>62 controls scanned</td>
+                    <td><a href="#">View results</a></td>
+                  </tr>
+                  <tr>
+                    <td>3 hours ago</td>
+                    <td class="type-pill">Node Management</td>
+                    <td>Node details updated</td>
+                    <td><span class="activity-badge neutral">—</span></td>
+                    <td>ip-172-31-13-11</td>
+                    <td><a href="#">View node</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+
+        <section class="detail-page hidden" id="clientRunDetailPage" aria-live="polite">
+          <nav class="breadcrumbs detail-breadcrumbs" aria-label="Breadcrumb">
+            <a href="#" data-detail-destination="overview">Reporting</a>
+            <span class="separator">›</span>
+            <a href="#" data-detail-destination="client-runs">Client Reporting</a>
+            <span class="separator">›</span>
+            <span>Client Run Details</span>
+          </nav>
+
+          <header class="detail-header">
+            <h1>Client Run Details</h1>
+            <div class="detail-run-summary">
+              <span class="detail-status-badge success">Success</span>
+              <span class="detail-run-name">web-prod-01</span>
+              <span class="detail-run-meta">• Last run: 26 Aug 2026, 16:26 UTC</span>
+            </div>
+            <div class="detail-run-id">Run ID: CR-6d9cfeb8-2d09-44f9</div>
+          </header>
+
+          <div class="detail-content-grid">
+            <section class="detail-card">
+              <h3>Run Information</h3>
+              <div class="detail-stat-row">
+                <span>Duration</span>
+                <strong>2m 34s</strong>
+              </div>
+              <div class="detail-stat-row">
+                <span>Chef Client Version</span>
+                <strong>17.5.22</strong>
+              </div>
+            </section>
+
+            <section class="detail-card resource-card">
+              <h3>Resource Overview</h3>
+              <div class="resource-summary-row">
+                <div class="resource-type success">
+                  <span class="resource-icon">✓</span>
+                  <div>
+                    <strong>7</strong>
+                    <small>Successful</small>
+                  </div>
+                </div>
+                <div class="resource-type failed">
+                  <span class="resource-icon">✕</span>
+                  <div>
+                    <strong>0</strong>
+                    <small>Failed</small>
+                  </div>
+                </div>
+                <div class="resource-type unchanged">
+                  <span class="resource-icon">□</span>
+                  <div>
+                    <strong>34</strong>
+                    <small>Unchanged</small>
+                  </div>
+                </div>
+                <div class="resource-type unprocessed">
+                  <span class="resource-icon">?</span>
+                  <div>
+                    <strong>0</strong>
+                    <small>Unprocessed</small>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <aside class="detail-card history-card">
+              <div class="history-header-row">
+                <h3>Run History</h3>
+                <button type="button" class="download-mini">Download</button>
+              </div>
+              <div class="history-tabs">
+                <button class="history-tab active" type="button">All <span>30</span></button>
+                <button class="history-tab" type="button">Success <span>25</span></button>
+                <button class="history-tab" type="button">Failed <span>5</span></button>
+              </div>
+              <div class="history-list">
+                <button class="history-item active" type="button">
+                  <span class="history-time">26 Aug 2026, 16:26 UTC</span>
+                  <span class="history-ago">1 minutes ago</span>
+                </button>
+                <button class="history-item" type="button">
+                  <span class="history-time">26 Aug 2026, 10:30 UTC</span>
+                  <span class="history-ago">6 hours ago</span>
+                </button>
+                <button class="history-item" type="button">
+                  <span class="history-time">26 Aug 2026, 08:27 UTC</span>
+                  <span class="history-ago">8 hours ago</span>
+                </button>
+                <button class="history-item" type="button">
+                  <span class="history-time">26 Aug 2026, 04:04 UTC</span>
+                  <span class="history-ago">12 hours ago</span>
+                </button>
+                <button class="history-item" type="button">
+                  <span class="history-time">26 Aug 2026, 01:51 UTC</span>
+                  <span class="history-ago">15 hours ago</span>
+                </button>
+              </div>
+            </aside>
+          </div>
+
+          <div class="detail-lower-grid">
+            <section class="detail-card lower-card">
+              <h3>Node Information</h3>
+              <div class="kv-grid">
+                <div class="kv-row"><span>Node Name</span><strong>web-prod-01</strong></div>
+                <div class="kv-row"><span>FQDN</span><strong>web-prod-01.chef.lab</strong></div>
+                <div class="kv-row"><span>IP Address</span><strong>10.128.1.133</strong></div>
+                <div class="kv-row"><span>Platform</span><strong>ubuntuHM 8.9</strong></div>
+                <div class="kv-row"><span>Node Uptime</span><strong>5 months</strong></div>
+              </div>
+            </section>
+
+            <section class="detail-card lower-card">
+              <h3>Metadata</h3>
+              <div class="kv-grid metadata-grid">
+                <div class="kv-row"><span>Chef Organization</span><strong>connected-test-org</strong></div>
+                <div class="kv-row"><span>Chef Server</span><strong>connected-test.cluster.chef.io</strong></div>
+                <div class="kv-row"><span>Cookbook Deprications</span><strong>None</strong></div>
+                <div class="kv-row"><span>Policy Name</span><strong>web-prod-critical</strong></div>
+                <div class="kv-row"><span>Policy Group</span><strong>web-prod-critical</strong></div>
+              </div>
+            </section>
+          </div>
+
+          <section class="resource-table-panel detail-card">
+            <div class="resource-toolbar">
+              <div class="resource-tabs">
+                <button class="resource-tab active" type="button">Resources</button>
+                <button class="resource-tab" type="button">Run List</button>
+                <button class="resource-tab" type="button">Attributes</button>
+              </div>
+              <div class="resource-actions" aria-label="Resource actions">
+                <button type="button" class="action-icon" aria-label="Search">⌕</button>
+                <button type="button" class="action-icon" aria-label="Download">⤓</button>
+              </div>
+            </div>
+
+            <div class="resource-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Step</th>
+                    <th>Resource Name</th>
+                    <th>Type</th>
+                    <th>Cookbook</th>
+                    <th>Resource Action</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1/41</td>
+                    <td>start apache2</td>
+                    <td>template</td>
+                    <td>apache2</td>
+                    <td>enable</td>
+                    <td><span class="table-status unchanged">Unchanged</span></td>
+                  </tr>
+                  <tr>
+                    <td>2/41</td>
+                    <td>enable apache2</td>
+                    <td>execute</td>
+                    <td>audit</td>
+                    <td>write</td>
+                    <td><span class="table-status unchanged">Unchanged</span></td>
+                  </tr>
+                  <tr>
+                    <td>3/41</td>
+                    <td>restart apache2</td>
+                    <td>service</td>
+                    <td>apache2</td>
+                    <td>restart</td>
+                    <td><span class="table-status success">Successful</span></td>
+                  </tr>
+                  <tr>
+                    <td>4/41</td>
+                    <td>create ssl cert</td>
+                    <td>template</td>
+                    <td>nginx</td>
+                    <td>create</td>
+                    <td><span class="table-status success">Successful</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="script.js?v=20260928"></script>
+  </body>
+</html>
